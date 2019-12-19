@@ -1,245 +1,181 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.2">Jekyll</generator><link href="https://google.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://google.com/" rel="alternate" type="text/html" /><updated>2018-06-17T23:39:39-03:00</updated><id>https://google.com/</id><title type="html">Finanzas Codificadas</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><author><name>Testury</name></author><entry><title type="html">Style tests</title><link href="https://google.com/test/2018/03/07/styletest.html" rel="alternate" type="text/html" title="Style tests" /><published>2018-03-07T17:01:04-03:00</published><updated>2018-03-07T17:01:04-03:00</updated><id>https://google.com/test/2018/03/07/styletest</id><content type="html" xml:base="https://google.com/test/2018/03/07/styletest.html">&lt;h1 id=&quot;heading-1&quot;&gt;Heading 1&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-12-18T23:25:10-03:00</updated><id>http://localhost:4000/</id><title type="html">Finanzas Codificadas</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><author><name>Juan Manuel Alvarez</name></author><entry><title type="html">Trading algorítmico en MATba-ROFEX con .Net - Parte 1</title><link href="http://localhost:4000/2019/12/18/primary-net-part-1" rel="alternate" type="text/html" title="Trading algorítmico en MATba-ROFEX con .Net - Parte 1" /><published>2019-12-18T00:00:00-03:00</published><updated>2019-12-18T00:00:00-03:00</updated><id>http://localhost:4000/2019/12/18/primary-net-part-1</id><content type="html" xml:base="http://localhost:4000/2019/12/18/primary-net-part-1">&lt;p&gt;&lt;img src=&quot;https://finanzascodificadas.blob.core.windows.net/finanzascodificadas/posts/2019-11-22-primary-net-part-1/matba-rofex-logo.png&quot; alt=&quot;MATBa-ROFEX&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel hendrerit enim. Suspendisse convallis sem hendrerit nisl fringilla, eget mattis urna tincidunt. Aliquam vulputate justo justo, id auctor orci lobortis sed. Nullam at laoreet enim. Donec rhoncus ullamcorper sodales. In hac habitasse platea dictumst. In ut sem id dolor ullamcorper tempor sit amet non nibh. Quisque euismod nibh id metus pharetra blandit. Quisque sit amet tincidunt enim. Duis ut tincidunt metus. Phasellus a leo dolor. Nunc eu orci neque. Nam vel ornare felis, ac efficitur mi. Mauris venenatis ipsum vel sem varius viverra. Etiam at tempus leo. Nunc hendrerit, lacus ac porttitor fringilla, leo dolor condimentum purus, in sagittis orci risus non velit.&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;h1 id=&quot;introducción&quot;&gt;Introducción&lt;/h1&gt;
 
-&lt;p&gt;Sed gravida pulvinar orci eget imperdiet. Vestibulum dignissim, justo in congue venenatis, turpis metus egestas diam, placerat aliquam sem quam eget mi. In eget velit urna. Sed nisi lacus, blandit tincidunt pharetra sit amet, pretium quis ante. Cras venenatis ultrices nisi quis congue. Proin rhoncus suscipit luctus. Nulla viverra nibh ut molestie gravida. Proin at lectus convallis, pharetra velit ut, viverra mi. Vestibulum placerat lacus diam, quis molestie orci hendrerit sed.&lt;sup id=&quot;fnref:2&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;h2 id=&quot;el-mercado-algorítmico-argentino-y-rofex&quot;&gt;El mercado algorítmico argentino y ROFEX&lt;/h2&gt;
 
-&lt;h2 id=&quot;heading-2&quot;&gt;Heading 2&lt;/h2&gt;
+&lt;p&gt;En mercados altamente desarrollados, como el de Estados Unidos, el trading algorítmico viene creciendo exponencialmente en los últimos años. Su desarrollo ha sido notorio, desde 1995, cuando el trading fue oficialmente automatizado en el New York Stock Exchange, al 2017 cuando, según JP Morgan, el trading manual era solo del 10% en términos de volumen (Fuente: &lt;a href=&quot;https://www.cnbc.com/2017/06/13/death-of-the-human-investor-just-10-percent-of-trading-is-regular-stock-picking-jpmorgan-estimates.html&quot;&gt;CNBC&lt;/a&gt;).&lt;/p&gt;
 
-&lt;p&gt;Aliquam dignissim arcu a nisi suscipit porttitor. Proin vitae bibendum arcu. Nullam bibendum odio sed enim commodo luctus. Nam ornare ultrices ante, sed vehicula dolor molestie ut. Integer eget ante eu neque vulputate lacinia vel id elit. Integer feugiat semper ex et bibendum. Ut accumsan dignissim ex, id tristique urna egestas id. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Integer id urna justo. Duis ultrices diam lorem, pellentesque congue orci maximus eget. Nam vel justo consectetur, sodales elit at, pulvinar purus. Donec lobortis est eget massa tempus pulvinar.&lt;/p&gt;
+&lt;p&gt;Hoy en día países menos desarrollados como Brasil o India, ya cuentan con mercados automáticos, pero en Argentina todavía hay varios desafíos por delante, entre ellos: la liquidez, la tecnología, la estructura de mercado, la legislación y el atractivo para inversores extranjeros están todavía lejos de sus pares. Algunos ejemplos incluyen: el impuesto a la renta financiera, la falta de instrumentos y de liquidez para shortear posiciones, como así también la falta de interfaces de programación para comunicarse con los brokers. Estos dos últimos hacen que el único mercado propicio para este tipo de implementaciones en Argentina, sea el mercado de futuros de ROFEX, quien cuenta con dicha infraestructura.&lt;/p&gt;
 
-&lt;h3 id=&quot;heading-3&quot;&gt;Heading 3&lt;/h3&gt;
+&lt;h2 id=&quot;interfaces-de-programación&quot;&gt;Interfaces de programación&lt;/h2&gt;
 
-&lt;p&gt;Phasellus tincidunt at nulla sed pharetra. Phasellus eu quam sit amet urna consectetur dictum sit amet vel neque. Quisque porta condimentum turpis. Sed ultricies facilisis arcu, ut commodo metus finibus id. Cras accumsan rhoncus facilisis. Mauris ac elementum elit, eget venenatis sapien. Sed lorem odio, facilisis eu sodales dapibus, tempus quis augue.&lt;/p&gt;
+&lt;p&gt;Para poder realizar una automatización utilizando un lenguaje de programación, es necesario contar con una interfaz de programación (API por sus siglas en inglés). De la misma forma que un usuario se comunica con un sistema a través de una interfaz de usuario, un programa se comunica con otro a través de una interfaz de programación.&lt;/p&gt;
 
-&lt;h4 id=&quot;heading-4-just-in-case-who-uses-h4&quot;&gt;Heading 4 (Just in case… who uses H4?)&lt;/h4&gt;
+&lt;p&gt;En noviembre de 2015, Primary, una empresa del grupo ROFEX, lanzó la primera interfaz de programación que permite automatizar la compra y venta de instrumentos de ROFEX, abriendo el camino para el desarrollo y ejecución de algoritmos de trading en dicho mercado.&lt;/p&gt;
 
-&lt;p&gt;Mauris vel eleifend enim. Nullam sed eros risus. Donec in elementum libero, et rhoncus felis. Quisque eu felis facilisis, rutrum velit et, sodales tellus. Morbi efficitur sagittis sem vel pharetra. In et viverra nibh, eget finibus arcu. Nulla facilisi.&lt;/p&gt;
+&lt;h2 id=&quot;liquidez&quot;&gt;Liquidez&lt;/h2&gt;
 
-&lt;h1 id=&quot;tables&quot;&gt;Tables&lt;/h1&gt;
+&lt;p&gt;Según los informes, “la operatoria de derivados financieros en MATba-ROFEX durante el primer semestre del 2019 superó todos los registros previos. En los primeros seis meses del año, se negociaron 137 millones de contratos, un 48% superior al primer semestre de 2018” (Fuente &lt;a href=&quot;https://www.rofex.com.ar/data/investigacion/listado.asp?idcategoria=3&amp;amp;tipoart=2&quot;&gt;ROFEX&lt;/a&gt;).&lt;/p&gt;
 
-&lt;p&gt;Vivamus laoreet fermentum purus, sit amet cursus purus mattis et. Cras bibendum vestibulum ipsum, finibus aliquet felis pharetra ac. Maecenas porta quis velit at dictum.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://finanzascodificadas.blob.core.windows.net/finanzascodificadas/posts/2019-11-22-primary-net-part-1/evolucion-operatoria.png&quot; alt=&quot;Operatoria derivados financieros&quot; /&gt;&lt;/p&gt;
 
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;Header 1&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;Header 2&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;Header 3&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;Cell 11&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;Cell 21&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;Cell 31&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;Cell 12&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;Cell 22&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;Cell 32&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;Cell 13&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;Cell 23&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;Cell 33&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
+&lt;h2 id=&quot;rofex-20&quot;&gt;ROFEX 20&lt;/h2&gt;
 
-&lt;h1 id=&quot;code-block&quot;&gt;Code block&lt;/h1&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;El Índice de Acciones ROFEX 20 es un índice de retorno total, diseñado para medir el desempeño de una cartera integrada por las 20 acciones más líquidas en el mercado accionario local ponderadas por su capitalización bursátil. (Fuente: &lt;a href=&quot;https://www.rofex.com.ar/indiceROFEX20/&quot;&gt;ROFEX20&lt;/a&gt;).&lt;/p&gt;
+&lt;/blockquote&gt;
 
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;pandas_datareader.data&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;readerimport&lt;/span&gt; 
-    
-&lt;span class=&quot;n&quot;&gt;datetimesymbol&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;‘&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GOOG&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;’&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;start&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;datetime&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;datetime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2009&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;end&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;datetime&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;datetime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2017&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;p&gt;En Abril de 2018 la CNV aprobó el índice de acciones ROFEX20 (RFX20) y rápidamente se volvió uno de los productos más negociados de ROFEX, generando también una alternativa para quienes desean aplicar estrategias de trading algorítmico sobre un mercado derivado de acciones. De hecho, según los informes de ROFEX del primer semestre de 2019, “el total negociado de futuros y opciones del índice desde su listado alcanzó los 2,5 millones de contratos operados […] y se alcanzó un ratio promedio de 65% volumen operado en futuros y opciones en relación al volumen operado en el mercado spot”.&lt;/p&gt;
 
-&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;reader&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get_data_yahoo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;symbol&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;start&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;end&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;interval&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;’&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;m&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;’&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;&lt;img src=&quot;https://finanzascodificadas.blob.core.windows.net/finanzascodificadas/posts/2019-11-22-primary-net-part-1/nocional-futuro-vs-spot.png&quot; alt=&quot;Volumen nocional futuro vs. spot&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;I can also write &lt;code class=&quot;highlighter-rouge&quot;&gt;Inline code blocks&lt;/code&gt;.&lt;/p&gt;
+&lt;h1 id=&quot;primary--c--primarynet&quot;&gt;Primary + C# = Primary.Net&lt;/h1&gt;
 
-&lt;h1 id=&quot;other-elements&quot;&gt;Other elements&lt;/h1&gt;
+&lt;p&gt;Primary.Net es una biblioteca para acceder a la API de Primary desde C#. Utiliza la API REST de Primary.&lt;/p&gt;
 
-&lt;h2 id=&quot;bullets&quot;&gt;Bullets&lt;/h2&gt;
+&lt;p&gt;Al momento de escribir este artículo, se encuentra todavía en desarrollo (versión 0.1.1-alpha) y tiene soporte para:&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;Bullet 1&lt;/li&gt;
-  &lt;li&gt;Bullet 2
-    &lt;ul&gt;
-      &lt;li&gt;Bullet 2.1&lt;/li&gt;
-      &lt;li&gt;Bullet 2.2&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Bullet 3&lt;/li&gt;
+  &lt;li&gt;Lista de instrumentos operados.&lt;/li&gt;
+  &lt;li&gt;Datos históricos.&lt;/li&gt;
+  &lt;li&gt;Datos en tiempo real.&lt;/li&gt;
+  &lt;li&gt;Cursar órdenes.&lt;/li&gt;
+  &lt;li&gt;Información de órdenes en tiempo real.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&quot;fonts&quot;&gt;Fonts&lt;/h2&gt;
+&lt;p&gt;El objetivo de esta serie es ir mostrando el uso de esta biblioteca, para poder hacer automatizaciones sobre el mercado de MATba-ROFEX.&lt;/p&gt;
 
-&lt;p&gt;&lt;u&gt;Underline&lt;/u&gt;&lt;/p&gt;
+&lt;h2 id=&quot;obtener-un-usuario-de-prueba&quot;&gt;Obtener un usuario de prueba&lt;/h2&gt;
 
-&lt;p&gt;&lt;strong&gt;Bold&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Para utilizar la API es necesario tener un usuario con quien autenticarnos. Nuestra ALyC nos va a proveer el usuario relacionado con nuestra cuenta comitente, pero no debemos hacer pruebas y desarrollar contra la cuenta que tiene dinero de verdad. Para estas etapas del proceso, se usa un usuario de prueba que no opera con dinero ficticio, por eso se denomina &lt;strong&gt;paper trading&lt;/strong&gt;.&lt;/p&gt;
 
-&lt;p&gt;&lt;em&gt;Italic&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;El usuario de prueba se obtiene registrándose en &lt;a href=&quot;https://remarkets.primary.ventures/&quot;&gt;reMarkets&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;&lt;del&gt;Strike&lt;/del&gt;&lt;/p&gt;
+&lt;p&gt;Para este artículo se asume que el usuario tiene experiencia en la creación de proyectos de C#, así que vamos directo a las particularidades.&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;http://fibury.com/&quot;&gt;Link&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;creación-del-proyecto&quot;&gt;Creación del proyecto&lt;/h2&gt;
 
-&lt;h2 id=&quot;image-with-caption&quot;&gt;Image with caption&lt;/h2&gt;
+&lt;p&gt;El paquete &lt;code class=&quot;highlighter-rouge&quot;&gt;Primary.Net&lt;/code&gt; se encuentra en Nuget.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAk4AAAAJDhmZGQxMDJhLWFjNGQtNDNkYi05MjY4LWM1MDYyZmM4NDZkYw.png&quot; alt=&quot;This is the Fibury logo.&quot; /&gt;
-&lt;em&gt;The caption for my image&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://finanzascodificadas.blob.core.windows.net/finanzascodificadas/posts/2019-11-22-primary-net-part-1/primary-net-nuget.png&quot; alt=&quot;Primary.Net en NuGet&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;(No tengo idea como hacer un caption! Se le puede aplicar un estilo a algún elemento tipo &lt;code class=&quot;highlighter-rouge&quot;&gt;figcaption  &lt;/code&gt;o &lt;code class=&quot;highlighter-rouge&quot;&gt;img + em&lt;/code&gt;?)&lt;/p&gt;
+&lt;p&gt;Para que aparezca la versión actual de la biblioteca es necesario chequear que incluya los prereleases, ya que al momento de escribir este artículo, no hay todavía una versión release.&lt;/p&gt;
 
-&lt;h2 id=&quot;math-blocks-with-caption&quot;&gt;Math blocks with caption&lt;/h2&gt;
+&lt;h2 id=&quot;autenticación&quot;&gt;Autenticación&lt;/h2&gt;
 
-&lt;div class=&quot;math&quot;&gt;
-  &lt;p&gt;&lt;script type=&quot;math/tex&quot;&gt;\sum_{i=0}^n i^2 = \frac{(n^2+n)(2n+1)}{6}&lt;/script&gt;
-&lt;em&gt;The caption for my image&lt;/em&gt;&lt;/p&gt;
-&lt;/div&gt;
+&lt;p&gt;Para autenticarse en la API, hay que primero crear una instancia del objeto &lt;code class=&quot;highlighter-rouge&quot;&gt;Api&lt;/code&gt; con el endponint del entorno al que queremos conectarnos. Primary.Net provee dos constantes: &lt;code class=&quot;highlighter-rouge&quot;&gt;DemoEndpoint&lt;/code&gt; y &lt;code class=&quot;highlighter-rouge&quot;&gt;ProductionEndpoint&lt;/code&gt;, para conectarse a las instancias de paper trading y produccion respectivamente.&lt;/p&gt;
 
-&lt;p&gt;Centering and adding a caption would be nice!&lt;/p&gt;
+&lt;p&gt;Luego se llama al método &lt;code class=&quot;highlighter-rouge&quot;&gt;Login&lt;/code&gt; utilizando como parámetros el usuario y el password.&lt;/p&gt;
 
-&lt;p&gt;I can also do some inline math by using $\sum_{i=0}^n i^2 = \frac{(n^2+n)(2n+1)}{6}$, which is cool!&lt;/p&gt;
+&lt;div class=&quot;language-c# highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kt&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;api&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Api&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Api&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DemoEndpoint&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;api&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Login&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;user&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;password&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h2 id=&quot;footnotes&quot;&gt;Footnotes&lt;/h2&gt;
+&lt;h2 id=&quot;obteniendo-los-instrumentos-negociados&quot;&gt;Obteniendo los instrumentos negociados&lt;/h2&gt;
 
-&lt;div class=&quot;footnotes&quot;&gt;
-  &lt;ol&gt;
-    &lt;li id=&quot;fn:1&quot;&gt;
-      &lt;p&gt;Acá va la footnote 1. &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
-    &lt;/li&gt;
-    &lt;li id=&quot;fn:2&quot;&gt;
-      &lt;p&gt;Acá va otra footnote! &lt;a href=&quot;#fnref:2&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
-    &lt;/li&gt;
-  &lt;/ol&gt;
-&lt;/div&gt;</content><author><name>Testury</name></author><summary type="html">Heading 1</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://cdn-images-1.medium.com/max/720/1*igJ5hSrwHVmr-w5wvVTT2g.png" /></entry><entry><title type="html">March post 2</title><link href="https://google.com/jekyll/update/2018/03/06/march6post.html" rel="alternate" type="text/html" title="March post 2" /><published>2018-03-06T17:01:04-03:00</published><updated>2018-03-06T17:01:04-03:00</updated><id>https://google.com/jekyll/update/2018/03/06/march6post</id><content type="html" xml:base="https://google.com/jekyll/update/2018/03/06/march6post.html">&lt;p&gt;&lt;img src=&quot;https://cdn-images-1.medium.com/max/720/1*igJ5hSrwHVmr-w5wvVTT2g.png&quot; alt=&quot;Header&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;Para obtener la lista de instrumentos negociados, se utiliza el método &lt;code class=&quot;highlighter-rouge&quot;&gt;GetAllInstruments&lt;/code&gt;, que devuelve un conjunto de &lt;code class=&quot;highlighter-rouge&quot;&gt;Instrument&lt;/code&gt;, donde se encuentran el mercado y el símbolo de cada uno.&lt;/p&gt;
 
-&lt;p&gt;You’ll find this post in your &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
+&lt;div class=&quot;language-c# highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kt&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;allIInstruments&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;api&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;GetAllInstruments&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;foreach&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;instrument&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;allIInstruments&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;Console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;WriteLine&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;instrument&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Market&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s&quot;&gt; / &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;instrument&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Symbol&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;To add new posts, simply add a file in the &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory that follows the convention &lt;code class=&quot;highlighter-rouge&quot;&gt;YYYY-MM-DD-name-of-post.ext&lt;/code&gt; and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
+&lt;p&gt;La salida va a ser algo como esto:&lt;/p&gt;
 
-&lt;p&gt;Jekyll also offers powerful support for code snippets:&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ROFX / SOJ.ROSMay20M
+ROFX / SOJ.ROSMay20 290c
+ROFX / PISO.MAI.ROSAbr20 161c
+ROFX / TRI.ROS 12/01 19
+ROFX / PISO.MAI.ROSAbr20 173c
+ROFX / PISO.MAI.ROSAbr20 185c
+ROFX / TRI.MINJul20
+ROFX / MERV - XMEV - AY24C - CI
+ROFX / MAI.ROSJul20 168c
+ROFX / SOJ.ROSEne20 229p
+ROFX / PISO.SOJ.ROSMay20 230p
+ROFX / GIR.ROSMar20
+ROFX / TRI.ROSMar20 189p
+ROFX / DONov19
+...
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hi, &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Tom'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints 'Hi, Tom' to STDOUT.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;h2 id=&quot;filtrando-los-instrumentos-de-interés&quot;&gt;Filtrando los instrumentos de interés&lt;/h2&gt;
 
-&lt;p&gt;Check out the &lt;a href=&quot;https://jekyllrb.com/docs/home&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://talk.jekyllrb.com/&quot;&gt;Jekyll Talk&lt;/a&gt;.&lt;/p&gt;</content><author><name>Testury</name></author><summary type="html"></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://cdn-images-1.medium.com/max/720/1*igJ5hSrwHVmr-w5wvVTT2g.png" /></entry><entry><title type="html">March post 3</title><link href="https://google.com/jekyll/update/2018/03/05/march55post.html" rel="alternate" type="text/html" title="March post 3" /><published>2018-03-05T18:01:04-03:00</published><updated>2018-03-05T18:01:04-03:00</updated><id>https://google.com/jekyll/update/2018/03/05/march55post</id><content type="html" xml:base="https://google.com/jekyll/update/2018/03/05/march55post.html">&lt;p&gt;&lt;img src=&quot;https://cdn-images-1.medium.com/max/720/1*igJ5hSrwHVmr-w5wvVTT2g.png&quot; alt=&quot;Header&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;Si quisiéramos filtrar por ejemplo, los futuros de dolar, podemos utilizar LINQ sobre dicha secuencia.&lt;/p&gt;
 
-&lt;p&gt;You’ll find this post in your &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
+&lt;div class=&quot;language-c# highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kt&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dollarFutures&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;allIInstruments&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Where&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;s&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Symbol&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;StartsWith&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;DO&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt;
+                                                &lt;span class=&quot;p&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Symbol&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;StartsWith&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;DOP &quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;foreach&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dollarFuture&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dollarFutures&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;Console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;WriteLine&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dollarFuture&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Symbol&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;To add new posts, simply add a file in the &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory that follows the convention &lt;code class=&quot;highlighter-rouge&quot;&gt;YYYY-MM-DD-name-of-post.ext&lt;/code&gt; and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
+&lt;p&gt;La salida de este ejemplo será algo como:&lt;/p&gt;
 
-&lt;p&gt;Jekyll also offers powerful support for code snippets:&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;DONov19
+DOMar20
+DONov19 66.00c
+DODic19
+DOEne20A
+DOJul20
+DOMay20A
+DONov19 68.00c
+DOJun20A
+DOJun20
+DONov19 60.00p
+DOAbr20
+DOAgo20
+...
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hi, &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Tom'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints 'Hi, Tom' to STDOUT.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;h2 id=&quot;obteniendo-los-trades-históricos-de-un-instrumento&quot;&gt;Obteniendo los trades históricos de un instrumento&lt;/h2&gt;
 
-&lt;p&gt;Check out the &lt;a href=&quot;https://jekyllrb.com/docs/home&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://talk.jekyllrb.com/&quot;&gt;Jekyll Talk&lt;/a&gt;.&lt;/p&gt;</content><author><name>Testury</name></author><summary type="html"></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://cdn-images-1.medium.com/max/720/1*igJ5hSrwHVmr-w5wvVTT2g.png" /></entry><entry><title type="html">March post</title><link href="https://google.com/jekyll/update/2018/03/05/march5post.html" rel="alternate" type="text/html" title="March post" /><published>2018-03-05T17:01:04-03:00</published><updated>2018-03-05T17:01:04-03:00</updated><id>https://google.com/jekyll/update/2018/03/05/march5post</id><content type="html" xml:base="https://google.com/jekyll/update/2018/03/05/march5post.html">&lt;p&gt;&lt;img src=&quot;https://cdn-images-1.medium.com/max/720/1*igJ5hSrwHVmr-w5wvVTT2g.png&quot; alt=&quot;Header&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;Finalmente, para obtener datos históricos de un instrumento, utilizamos el método &lt;code class=&quot;highlighter-rouge&quot;&gt;GetHistoricalTrades&lt;/code&gt; que devuelve una secuencia de &lt;code class=&quot;highlighter-rouge&quot;&gt;Trade&lt;/code&gt; con la información de cada operación realizada.&lt;/p&gt;
 
-&lt;p&gt;You’ll find this post in your &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
+&lt;p&gt;Los parámetros son: el instrumento y el intervalo de días para el cual queremos los datos.&lt;/p&gt;
 
-&lt;p&gt;To add new posts, simply add a file in the &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory that follows the convention &lt;code class=&quot;highlighter-rouge&quot;&gt;YYYY-MM-DD-name-of-post.ext&lt;/code&gt; and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
+&lt;div class=&quot;language-c# highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kt&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sampleInstrument&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;allIInstruments&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;First&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;kt&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;threeDaysAgo&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;DateTime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Today&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;AddDays&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(-&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
 
-&lt;p&gt;Jekyll also offers powerful support for code snippets:&lt;/p&gt;
+&lt;span class=&quot;k&quot;&gt;foreach&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;trade&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;api&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;GetHistoricalTrades&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sampleInstrument&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;threeDaysAgo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;DateTime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Today&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;Console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;WriteLine&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;trade&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DateTime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;ToLocalTime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()}&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;: $&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;trade&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Price&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s&quot;&gt; (&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;trade&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;)&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hi, &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Tom'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints 'Hi, Tom' to STDOUT.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;p&gt;Como la API de Primary devuelve las fechas y horas en UTC, es necesario convertirlos a fecha/hora local.&lt;/p&gt;
 
-&lt;p&gt;Check out the &lt;a href=&quot;https://jekyllrb.com/docs/home&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://talk.jekyllrb.com/&quot;&gt;Jekyll Talk&lt;/a&gt;.&lt;/p&gt;</content><author><name>Testury</name></author><summary type="html"></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://cdn-images-1.medium.com/max/720/1*igJ5hSrwHVmr-w5wvVTT2g.png" /></entry><entry><title type="html">Something else and more</title><link href="https://google.com/jekyll/update/2018/02/18/somethinfelseandmore.html" rel="alternate" type="text/html" title="Something else and more" /><published>2018-02-18T17:01:04-03:00</published><updated>2018-02-18T17:01:04-03:00</updated><id>https://google.com/jekyll/update/2018/02/18/somethinfelseandmore</id><content type="html" xml:base="https://google.com/jekyll/update/2018/02/18/somethinfelseandmore.html">&lt;p&gt;&lt;img src=&quot;https://cdn-images-1.medium.com/max/720/1*xsBEe017Pt8dPScy41ffSA.png&quot; alt=&quot;Header&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;La salida es:&lt;/p&gt;
 
-&lt;p&gt;You’ll find this post in your &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;11/19/2019 10:30:48 AM: $60.35 (6.0)
+11/19/2019 10:32:10 AM: $60.351 (1.0)
+11/19/2019 10:59:42 AM: $60.39 (1.0)
+11/19/2019 11:31:06 AM: $60.45 (1.0)
+11/19/2019 11:34:15 AM: $60.5 (1.0)
+11/19/2019 11:35:45 AM: $60.5 (20.0)
+11/19/2019 11:43:17 AM: $60.51 (1.0)
+11/19/2019 11:43:49 AM: $60.51 (1.0)
+11/19/2019 11:48:15 AM: $60.55 (10.0)
+11/19/2019 11:48:15 AM: $60.55 (30.0)
+11/19/2019 11:48:15 AM: $60.55 (13.0)
+11/19/2019 11:48:15 AM: $60.55 (13.0)
+11/19/2019 11:49:49 AM: $60.55 (7.0)
+11/19/2019 11:49:49 AM: $60.55 (7.0)
+11/19/2019 12:01:34 PM: $60.55 (7.0)
+...
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;To add new posts, simply add a file in the &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory that follows the convention &lt;code class=&quot;highlighter-rouge&quot;&gt;YYYY-MM-DD-name-of-post.ext&lt;/code&gt; and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
+&lt;h1 id=&quot;conclusiones&quot;&gt;Conclusiones&lt;/h1&gt;
 
-&lt;p&gt;Jekyll also offers powerful support for code snippets:&lt;/p&gt;
+&lt;p&gt;Primary.Net provee una forma de acceder a la API de Primary y a los productos de MATba-ROFEX desde C#. Si bien la biblioteca se encuentra todavía en desarrollo, la funcionalidad existente permite que sea utilizada para los casos de uso más comunes.&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hi, &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Tom'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints 'Hi, Tom' to STDOUT.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;p&gt;En futuros artículos iremos desarrollando el resto de la funcionalidad disponible en la biblioteca y ejemplos de como utilizarla para implementar una estrategia de trading.&lt;/p&gt;
 
-&lt;p&gt;Check out the &lt;a href=&quot;https://jekyllrb.com/docs/home&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://talk.jekyllrb.com/&quot;&gt;Jekyll Talk&lt;/a&gt;.&lt;/p&gt;</content><author><name>Testury</name></author><summary type="html"></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://cdn-images-1.medium.com/max/720/1*xsBEe017Pt8dPScy41ffSA.png" /></entry><entry><title type="html">Caro Awesome Testing header</title><link href="https://google.com/jekyll/update/2018/02/17/somethincaro2.html" rel="alternate" type="text/html" title="Caro Awesome Testing header" /><published>2018-02-17T17:01:06-03:00</published><updated>2018-02-17T17:01:06-03:00</updated><id>https://google.com/jekyll/update/2018/02/17/somethincaro2</id><content type="html" xml:base="https://google.com/jekyll/update/2018/02/17/somethincaro2.html">&lt;p&gt;&lt;img src=&quot;https://cdn-images-1.medium.com/max/720/1*xsBEe017Pt8dPScy41ffSA.png&quot; alt=&quot;Header&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;Pueden encontrar más información de la Primary API en su &lt;a href=&quot;http://api.primary.com.ar/&quot;&gt;sitio oficial&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;You’ll find this post in your &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
-
-&lt;p&gt;To add new posts, simply add a file in the &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory that follows the convention &lt;code class=&quot;highlighter-rouge&quot;&gt;YYYY-MM-DD-name-of-post.ext&lt;/code&gt; and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
-
-&lt;p&gt;Jekyll also offers powerful support for code snippets:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hi, &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Tom'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints 'Hi, Tom' to STDOUT.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;Check out the &lt;a href=&quot;https://jekyllrb.com/docs/home&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://talk.jekyllrb.com/&quot;&gt;Jekyll Talk&lt;/a&gt;.&lt;/p&gt;</content><author><name>Testury</name></author><summary type="html"></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://cdn-images-1.medium.com/max/720/1*xsBEe017Pt8dPScy41ffSA.png" /></entry><entry><title type="html">Testing header</title><link href="https://google.com/jekyll/update/2018/02/17/somethinfelse.html" rel="alternate" type="text/html" title="Testing header" /><published>2018-02-17T17:01:04-03:00</published><updated>2018-02-17T17:01:04-03:00</updated><id>https://google.com/jekyll/update/2018/02/17/somethinfelse</id><content type="html" xml:base="https://google.com/jekyll/update/2018/02/17/somethinfelse.html">&lt;p&gt;&lt;img src=&quot;https://cdn-images-1.medium.com/max/720/1*xsBEe017Pt8dPScy41ffSA.png&quot; alt=&quot;Header&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;You’ll find this post in your &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
-
-&lt;p&gt;To add new posts, simply add a file in the &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory that follows the convention &lt;code class=&quot;highlighter-rouge&quot;&gt;YYYY-MM-DD-name-of-post.ext&lt;/code&gt; and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
-
-&lt;p&gt;Jekyll also offers powerful support for code snippets:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hi, &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Tom'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints 'Hi, Tom' to STDOUT.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;Check out the &lt;a href=&quot;https://jekyllrb.com/docs/home&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://talk.jekyllrb.com/&quot;&gt;Jekyll Talk&lt;/a&gt;.&lt;/p&gt;</content><author><name>Testury</name></author><summary type="html"></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://cdn-images-1.medium.com/max/720/1*xsBEe017Pt8dPScy41ffSA.png" /></entry><entry><title type="html">Caro Testing header</title><link href="https://google.com/jekyll/update/2018/02/17/somethincaro.html" rel="alternate" type="text/html" title="Caro Testing header" /><published>2018-02-17T17:01:04-03:00</published><updated>2018-02-17T17:01:04-03:00</updated><id>https://google.com/jekyll/update/2018/02/17/somethincaro</id><content type="html" xml:base="https://google.com/jekyll/update/2018/02/17/somethincaro.html">&lt;p&gt;&lt;img src=&quot;https://cdn-images-1.medium.com/max/720/1*xsBEe017Pt8dPScy41ffSA.png&quot; alt=&quot;Header&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;You’ll find this post in your &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
-
-&lt;p&gt;To add new posts, simply add a file in the &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory that follows the convention &lt;code class=&quot;highlighter-rouge&quot;&gt;YYYY-MM-DD-name-of-post.ext&lt;/code&gt; and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
-
-&lt;p&gt;Jekyll also offers powerful support for code snippets:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hi, &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Tom'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints 'Hi, Tom' to STDOUT.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;Check out the &lt;a href=&quot;https://jekyllrb.com/docs/home&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://talk.jekyllrb.com/&quot;&gt;Jekyll Talk&lt;/a&gt;.&lt;/p&gt;</content><author><name>Testury</name></author><summary type="html"></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://cdn-images-1.medium.com/max/720/1*xsBEe017Pt8dPScy41ffSA.png" /></entry><entry><title type="html">Carito Again Testing header</title><link href="https://google.com/jekyll/update/2018/02/17/carito2.html" rel="alternate" type="text/html" title="Carito Again Testing header" /><published>2018-02-17T17:01:04-03:00</published><updated>2018-02-17T17:01:04-03:00</updated><id>https://google.com/jekyll/update/2018/02/17/carito2</id><content type="html" xml:base="https://google.com/jekyll/update/2018/02/17/carito2.html">&lt;p&gt;&lt;img src=&quot;https://cdn-images-1.medium.com/max/720/1*xsBEe017Pt8dPScy41ffSA.png&quot; alt=&quot;Header&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;You’ll find this post in your &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
-
-&lt;p&gt;To add new posts, simply add a file in the &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory that follows the convention &lt;code class=&quot;highlighter-rouge&quot;&gt;YYYY-MM-DD-name-of-post.ext&lt;/code&gt; and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
-
-&lt;p&gt;Jekyll also offers powerful support for code snippets:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hi, &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Tom'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints 'Hi, Tom' to STDOUT.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;Check out the &lt;a href=&quot;https://jekyllrb.com/docs/home&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://talk.jekyllrb.com/&quot;&gt;Jekyll Talk&lt;/a&gt;.&lt;/p&gt;</content><author><name>Testury</name></author><summary type="html"></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://cdn-images-1.medium.com/max/720/1*xsBEe017Pt8dPScy41ffSA.png" /></entry><entry><title type="html">Carito Testing header</title><link href="https://google.com/jekyll/update/2018/02/17/carito.html" rel="alternate" type="text/html" title="Carito Testing header" /><published>2018-02-17T17:01:04-03:00</published><updated>2018-02-17T17:01:04-03:00</updated><id>https://google.com/jekyll/update/2018/02/17/carito</id><content type="html" xml:base="https://google.com/jekyll/update/2018/02/17/carito.html">&lt;p&gt;&lt;img src=&quot;https://cdn-images-1.medium.com/max/720/1*xsBEe017Pt8dPScy41ffSA.png&quot; alt=&quot;Header&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;You’ll find this post in your &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
-
-&lt;p&gt;To add new posts, simply add a file in the &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory that follows the convention &lt;code class=&quot;highlighter-rouge&quot;&gt;YYYY-MM-DD-name-of-post.ext&lt;/code&gt; and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
-
-&lt;p&gt;Jekyll also offers powerful support for code snippets:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hi, &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Tom'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints 'Hi, Tom' to STDOUT.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;Check out the &lt;a href=&quot;https://jekyllrb.com/docs/home&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://talk.jekyllrb.com/&quot;&gt;Jekyll Talk&lt;/a&gt;.&lt;/p&gt;</content><author><name>Testury</name></author><summary type="html"></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://cdn-images-1.medium.com/max/720/1*xsBEe017Pt8dPScy41ffSA.png" /></entry></feed>
+&lt;p&gt;Para conocer más acerca de la biblioteca, se puede acceder al &lt;a href=&quot;https://github.com/naicigam/Primary.Net/&quot;&gt;repositorio de GitHub&lt;/a&gt; y a la &lt;a href=&quot;https://primary.naicigam.dev/&quot;&gt;documentación&lt;/a&gt;.&lt;/p&gt;</content><author><name>Juan Manuel Alvarez</name></author><summary type="html">Introducción El mercado algorítmico argentino y ROFEX En mercados altamente desarrollados, como el de Estados Unidos, el trading algorítmico viene creciendo exponencialmente en los últimos años. Su desarrollo ha sido notorio, desde 1995, cuando el trading fue oficialmente automatizado en el New York Stock Exchange, al 2017 cuando, según JP Morgan, el trading manual era solo del 10% en términos de volumen (Fuente: CNBC). Hoy en día países menos desarrollados como Brasil o India, ya cuentan con mercados automáticos, pero en Argentina todavía hay varios desafíos por delante, entre ellos: la liquidez, la tecnología, la estructura de mercado, la legislación y el atractivo para inversores extranjeros están todavía lejos de sus pares. Algunos ejemplos incluyen: el impuesto a la renta financiera, la falta de instrumentos y de liquidez para shortear posiciones, como así también la falta de interfaces de programación para comunicarse con los brokers. Estos dos últimos hacen que el único mercado propicio para este tipo de implementaciones en Argentina, sea el mercado de futuros de ROFEX, quien cuenta con dicha infraestructura. Interfaces de programación Para poder realizar una automatización utilizando un lenguaje de programación, es necesario contar con una interfaz de programación (API por sus siglas en inglés). De la misma forma que un usuario se comunica con un sistema a través de una interfaz de usuario, un programa se comunica con otro a través de una interfaz de programación. En noviembre de 2015, Primary, una empresa del grupo ROFEX, lanzó la primera interfaz de programación que permite automatizar la compra y venta de instrumentos de ROFEX, abriendo el camino para el desarrollo y ejecución de algoritmos de trading en dicho mercado. Liquidez Según los informes, “la operatoria de derivados financieros en MATba-ROFEX durante el primer semestre del 2019 superó todos los registros previos. En los primeros seis meses del año, se negociaron 137 millones de contratos, un 48% superior al primer semestre de 2018” (Fuente ROFEX). ROFEX 20 El Índice de Acciones ROFEX 20 es un índice de retorno total, diseñado para medir el desempeño de una cartera integrada por las 20 acciones más líquidas en el mercado accionario local ponderadas por su capitalización bursátil. (Fuente: ROFEX20). En Abril de 2018 la CNV aprobó el índice de acciones ROFEX20 (RFX20) y rápidamente se volvió uno de los productos más negociados de ROFEX, generando también una alternativa para quienes desean aplicar estrategias de trading algorítmico sobre un mercado derivado de acciones. De hecho, según los informes de ROFEX del primer semestre de 2019, “el total negociado de futuros y opciones del índice desde su listado alcanzó los 2,5 millones de contratos operados […] y se alcanzó un ratio promedio de 65% volumen operado en futuros y opciones en relación al volumen operado en el mercado spot”. Primary + C# = Primary.Net Primary.Net es una biblioteca para acceder a la API de Primary desde C#. Utiliza la API REST de Primary. Al momento de escribir este artículo, se encuentra todavía en desarrollo (versión 0.1.1-alpha) y tiene soporte para: Lista de instrumentos operados. Datos históricos. Datos en tiempo real. Cursar órdenes. Información de órdenes en tiempo real. El objetivo de esta serie es ir mostrando el uso de esta biblioteca, para poder hacer automatizaciones sobre el mercado de MATba-ROFEX. Obtener un usuario de prueba Para utilizar la API es necesario tener un usuario con quien autenticarnos. Nuestra ALyC nos va a proveer el usuario relacionado con nuestra cuenta comitente, pero no debemos hacer pruebas y desarrollar contra la cuenta que tiene dinero de verdad. Para estas etapas del proceso, se usa un usuario de prueba que no opera con dinero ficticio, por eso se denomina paper trading. El usuario de prueba se obtiene registrándose en reMarkets. Para este artículo se asume que el usuario tiene experiencia en la creación de proyectos de C#, así que vamos directo a las particularidades. Creación del proyecto El paquete Primary.Net se encuentra en Nuget. Para que aparezca la versión actual de la biblioteca es necesario chequear que incluya los prereleases, ya que al momento de escribir este artículo, no hay todavía una versión release. Autenticación Para autenticarse en la API, hay que primero crear una instancia del objeto Api con el endponint del entorno al que queremos conectarnos. Primary.Net provee dos constantes: DemoEndpoint y ProductionEndpoint, para conectarse a las instancias de paper trading y produccion respectivamente. Luego se llama al método Login utilizando como parámetros el usuario y el password. var api = new Api(Api.DemoEndpoint); await api.Login(&quot;user&quot;, &quot;password&quot;); Obteniendo los instrumentos negociados Para obtener la lista de instrumentos negociados, se utiliza el método GetAllInstruments, que devuelve un conjunto de Instrument, donde se encuentran el mercado y el símbolo de cada uno. var allIInstruments = await api.GetAllInstruments(); foreach (var instrument in allIInstruments) { Console.WriteLine($&quot;{instrument.Market} / {instrument.Symbol}&quot;); } La salida va a ser algo como esto: ROFX / SOJ.ROSMay20M ROFX / SOJ.ROSMay20 290c ROFX / PISO.MAI.ROSAbr20 161c ROFX / TRI.ROS 12/01 19 ROFX / PISO.MAI.ROSAbr20 173c ROFX / PISO.MAI.ROSAbr20 185c ROFX / TRI.MINJul20 ROFX / MERV - XMEV - AY24C - CI ROFX / MAI.ROSJul20 168c ROFX / SOJ.ROSEne20 229p ROFX / PISO.SOJ.ROSMay20 230p ROFX / GIR.ROSMar20 ROFX / TRI.ROSMar20 189p ROFX / DONov19 ... Filtrando los instrumentos de interés Si quisiéramos filtrar por ejemplo, los futuros de dolar, podemos utilizar LINQ sobre dicha secuencia. var dollarFutures = allIInstruments.Where( s =&amp;gt; s.Symbol.StartsWith(&quot;DO&quot;) &amp;amp;&amp;amp; !s.Symbol.StartsWith(&quot;DOP &quot;) ); foreach (var dollarFuture in dollarFutures) { Console.WriteLine($&quot;{dollarFuture.Symbol}&quot;); } La salida de este ejemplo será algo como: DONov19 DOMar20 DONov19 66.00c DODic19 DOEne20A DOJul20 DOMay20A DONov19 68.00c DOJun20A DOJun20 DONov19 60.00p DOAbr20 DOAgo20 ... Obteniendo los trades históricos de un instrumento Finalmente, para obtener datos históricos de un instrumento, utilizamos el método GetHistoricalTrades que devuelve una secuencia de Trade con la información de cada operación realizada. Los parámetros son: el instrumento y el intervalo de días para el cual queremos los datos. var sampleInstrument = allIInstruments.First(); var threeDaysAgo = DateTime.Today.AddDays(-3); foreach (var trade in await api.GetHistoricalTrades(sampleInstrument, threeDaysAgo, DateTime.Today)) { Console.WriteLine($&quot;{trade.DateTime.ToLocalTime()}: ${trade.Price} ({trade.Size})&quot;); } Como la API de Primary devuelve las fechas y horas en UTC, es necesario convertirlos a fecha/hora local. La salida es: 11/19/2019 10:30:48 AM: $60.35 (6.0) 11/19/2019 10:32:10 AM: $60.351 (1.0) 11/19/2019 10:59:42 AM: $60.39 (1.0) 11/19/2019 11:31:06 AM: $60.45 (1.0) 11/19/2019 11:34:15 AM: $60.5 (1.0) 11/19/2019 11:35:45 AM: $60.5 (20.0) 11/19/2019 11:43:17 AM: $60.51 (1.0) 11/19/2019 11:43:49 AM: $60.51 (1.0) 11/19/2019 11:48:15 AM: $60.55 (10.0) 11/19/2019 11:48:15 AM: $60.55 (30.0) 11/19/2019 11:48:15 AM: $60.55 (13.0) 11/19/2019 11:48:15 AM: $60.55 (13.0) 11/19/2019 11:49:49 AM: $60.55 (7.0) 11/19/2019 11:49:49 AM: $60.55 (7.0) 11/19/2019 12:01:34 PM: $60.55 (7.0) ... Conclusiones Primary.Net provee una forma de acceder a la API de Primary y a los productos de MATba-ROFEX desde C#. Si bien la biblioteca se encuentra todavía en desarrollo, la funcionalidad existente permite que sea utilizada para los casos de uso más comunes. En futuros artículos iremos desarrollando el resto de la funcionalidad disponible en la biblioteca y ejemplos de como utilizarla para implementar una estrategia de trading. Pueden encontrar más información de la Primary API en su sitio oficial. Para conocer más acerca de la biblioteca, se puede acceder al repositorio de GitHub y a la documentación.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://finanzascodificadas.blob.core.windows.net/finanzascodificadas/tech-header.png" /></entry></feed>
