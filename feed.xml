@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-03-06T13:14:39-03:00</updated><id>http://localhost:4000/</id><title type="html">Finanzas Codificadas</title><subtitle>Code Jedi - Finance Padawan.</subtitle><author><name>Juan Manuel Alvarez</name></author><entry><title type="html">Trading algorítmico en MATba-ROFEX con .Net - Parte 1</title><link href="http://localhost:4000/primary-net-part-1" rel="alternate" type="text/html" title="Trading algorítmico en MATba-ROFEX con .Net - Parte 1" /><published>2019-12-18T00:00:00-03:00</published><updated>2019-12-18T00:00:00-03:00</updated><id>http://localhost:4000/primary-net-part-1</id><content type="html" xml:base="http://localhost:4000/primary-net-part-1">&lt;p&gt;&lt;img src=&quot;http://localhost:4000/images/posts/primary-net-part-1/matba-rofex-logo.png&quot; alt=&quot;MATBa-ROFEX&quot; /&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.2">Jekyll</generator><link href="https://finanzascodificadas.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://finanzascodificadas.com/" rel="alternate" type="text/html" /><updated>2020-03-06T13:31:34-03:00</updated><id>https://finanzascodificadas.com/</id><title type="html">Finanzas Codificadas</title><subtitle>Code Jedi - Finance Padawan.</subtitle><author><name>Juan Manuel Alvarez</name></author><entry><title type="html">Trading algorítmico en MATba-ROFEX con .Net - Parte 1</title><link href="https://finanzascodificadas.com/posts/primary-net-part-1" rel="alternate" type="text/html" title="Trading algorítmico en MATba-ROFEX con .Net - Parte 1" /><published>2019-12-18T00:00:00-03:00</published><updated>2019-12-18T00:00:00-03:00</updated><id>https://finanzascodificadas.com/posts/primary-net-part-1</id><content type="html" xml:base="https://finanzascodificadas.com/posts/primary-net-part-1">&lt;p&gt;&lt;img src=&quot;https://finanzascodificadas.com/images/posts/primary-net-part-1/matba-rofex-logo.png&quot; alt=&quot;MATBa-ROFEX&quot; /&gt;&lt;/p&gt;
 
 &lt;h1 id=&quot;introducción&quot;&gt;Introducción&lt;/h1&gt;
 
@@ -18,7 +18,7 @@
 
 &lt;p&gt;Según los informes, “la operatoria de derivados financieros en MATba-ROFEX durante el primer semestre del 2019 superó todos los registros previos. En los primeros seis meses del año, se negociaron 137 millones de contratos, un 48% superior al primer semestre de 2018” (Fuente &lt;a href=&quot;https://www.rofex.com.ar/data/investigacion/listado.asp?idcategoria=3&amp;amp;tipoart=2&quot;&gt;ROFEX&lt;/a&gt;).&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://localhost:4000/images/posts/primary-net-part-1/evolucion-operatoria.png&quot; alt=&quot;Operatoria derivados financieros&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://finanzascodificadas.com/images/posts/primary-net-part-1/evolucion-operatoria.png&quot; alt=&quot;Operatoria derivados financieros&quot; /&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;rofex-20&quot;&gt;ROFEX 20&lt;/h2&gt;
 
@@ -28,7 +28,7 @@
 
 &lt;p&gt;En Abril de 2018 la CNV aprobó el índice de acciones ROFEX20 (RFX20) y rápidamente se volvió uno de los productos más negociados de ROFEX, generando también una alternativa para quienes desean aplicar estrategias de trading algorítmico sobre un mercado derivado de acciones. De hecho, según los informes de ROFEX del primer semestre de 2019, “el total negociado de futuros y opciones del índice desde su listado alcanzó los 2,5 millones de contratos operados […] y se alcanzó un ratio promedio de 65% volumen operado en futuros y opciones en relación al volumen operado en el mercado spot”.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://localhost:4000/images/posts/primary-net-part-1/nocional-futuro-vs-spot.png&quot; alt=&quot;Volumen nocional futuro vs. spot&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://finanzascodificadas.com/images/posts/primary-net-part-1/nocional-futuro-vs-spot.png&quot; alt=&quot;Volumen nocional futuro vs. spot&quot; /&gt;&lt;/p&gt;
 
 &lt;h1 id=&quot;primary--c--primarynet&quot;&gt;Primary + C# = Primary.Net&lt;/h1&gt;
 
@@ -58,7 +58,7 @@
 
 &lt;p&gt;El paquete &lt;code class=&quot;highlighter-rouge&quot;&gt;Primary.Net&lt;/code&gt; se encuentra en Nuget.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://localhost:4000/images/posts/primary-net-part-1/primary-net-nuget.png&quot; alt=&quot;Primary.Net en NuGet&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://finanzascodificadas.com/images/posts/primary-net-part-1/primary-net-nuget.png&quot; alt=&quot;Primary.Net en NuGet&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Para que aparezca la versión actual de la biblioteca es necesario chequear que incluya los prereleases, ya que al momento de escribir este artículo, no hay todavía una versión release.&lt;/p&gt;
 
