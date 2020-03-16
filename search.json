@@ -1,6 +1,14 @@
 [
   
     {
+      "title"    : "Programando Finanzas - Una guía de estudio",
+      "category" : "",
+      "tags"     : "",
+      "url"      : "/posts/programacion-finanzas",
+      "date"     : "2020-03-16 00:00:00 -0300"
+    } ,
+  
+    {
       "title"    : "Trading algorítmico en MATba-ROFEX con .Net - Parte 1",
       "category" : "",
       "tags"     : "",
