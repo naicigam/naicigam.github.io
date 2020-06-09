@@ -5,9 +5,9 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- Begin Jekyll SEO tag v2.6.1 -->
+  <!-- Begin Jekyll SEO tag v2.4.0 -->
 <title>Finanzas Codificadas | Code Jedi - Finance Padawan</title>
-<meta name="generator" content="Jekyll v3.7.4" />
+<meta name="generator" content="Jekyll v3.7.2" />
 <meta property="og:title" content="Finanzas Codificadas" />
 <meta name="author" content="Juan Manuel Alvarez" />
 <meta property="og:locale" content="en_US" />
@@ -19,7 +19,7 @@
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2019-12-01T00:00:00-03:00" />
 <script type="application/ld+json">
-{"description":"Code Jedi - Finance Padawan","author":{"@type":"Person","name":"Juan Manuel Alvarez"},"@type":"BlogPosting","url":"https://finanzascodificadas.com/2019/12/","headline":"Finanzas Codificadas","dateModified":"2019-12-01T00:00:00-03:00","datePublished":"2019-12-01T00:00:00-03:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://finanzascodificadas.com/2019/12/"},"@context":"https://schema.org"}</script>
+{"description":"Code Jedi - Finance Padawan","author":{"@type":"Person","name":"Juan Manuel Alvarez"},"@type":"BlogPosting","url":"https://finanzascodificadas.com/2019/12/","headline":"Finanzas Codificadas","dateModified":"2019-12-01T00:00:00-03:00","datePublished":"2019-12-01T00:00:00-03:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://finanzascodificadas.com/2019/12/"},"@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
   <link rel="stylesheet" href="/assets/main.css">
@@ -117,6 +117,9 @@ if(!(window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNo
             
             
           
+            
+            
+          
         </div>
       </nav>
     
@@ -146,6 +149,136 @@ if(!(window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNo
         </div>
 
 
+      	<h2 class="archive-post-title"><a href="/posts/primary-net-part-2">Trading algorítmico en MATba-ROFEX con .Net - Parte 2</a></h2>
+      	<div class="prl15"><p><img src="https://finanzascodificadas.com/images/posts/primary-net-part-1/matba-rofex-logo.png" alt="MATBa-ROFEX" /></p>
+
+<ul>
+  <li><a href="https://finanzascodificadas.com/posts/primary-net-part-1">Parte 1: Introducción, instrumentos negociados y datos históricos.</a></li>
+  <li><strong>Parte 2: Ordenes.</strong></li>
+  <li>Parte 3: Eventos y datos en tiempo real.</li>
+  <li>Parte 4: Ejemplo de una estrategia de trading.</li>
+</ul>
+
+<hr />
+
+<p>En la primera parte de esta serie presentamos Primary.Net y como acceder a la lista de instrumentos operados y sus datos históricos.
+En esta segunda parte, vamos a ver como operar con órdenes.</p>
+
+<h1 id="identificando-una-orden">Identificando una orden</h1>
+<p>Las órdenes en Primary.Net están representadas por una jerarquía de tres clases:</p>
+
+<p><img src="https://finanzascodificadas.com/images/posts/primary-net-part-2/order-classes.png" alt="Diagrama de clases" /></p>
+
+<ul>
+  <li><code class="highlighter-rouge">OrderId</code>: Identifica a una orden.</li>
+  <li><code class="highlighter-rouge">Order</code>: Contiene la información necesaria para ingresar una orden al mercado.</li>
+  <li><code class="highlighter-rouge">OrderStatus</code>: Contiene el estado de una orden enviada al mercado.</li>
+</ul>
+
+<h1 id="enviando-una-orden">Enviando una orden</h1>
+<p>Una orden en Primary.Net está representada por la clase <code class="highlighter-rouge">Order</code>. Las propiedades básicas que tenemos que tener en cuenta son:</p>
+<ul>
+  <li><code class="highlighter-rouge">Instrument</code>: Sobre que instrumento queremos operar.</li>
+  <li><code class="highlighter-rouge">Type</code>: Si es una orden al precio de mercado y a un precio específico.</li>
+  <li><code class="highlighter-rouge">Side</code>: Orden de compra o de venta.</li>
+  <li><code class="highlighter-rouge">Expiration</code>: El tiempo de vida de la orden.</li>
+  <li><code class="highlighter-rouge">Quantity</code>: La cantidad de instrumentos a operar.</li>
+</ul>
+
+<p>Una vez creada la orden, se envia con el método <code class="highlighter-rouge">SubmitOrder</code>.</p>
+
+<p>Por ejemplo, así se enviaría una orden de compra por 100 contratos del futuro de dolar con vencimiento en julio 2020 al precio de mercado:</p>
+
+<div class="language-c# highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">var</span> <span class="n">api</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Api</span><span class="p">(</span><span class="n">Api</span><span class="p">.</span><span class="n">DemoEndpoint</span><span class="p">);</span>
+<span class="k">await</span> <span class="n">api</span><span class="p">.</span><span class="nf">Login</span><span class="p">(</span><span class="n">Api</span><span class="p">.</span><span class="n">DemoUsername</span><span class="p">,</span> <span class="n">Api</span><span class="p">.</span><span class="n">DemoPassword</span><span class="p">);</span>
+
+<span class="kt">var</span> <span class="n">order</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Order</span>
+<span class="p">{</span>
+    <span class="n">Instrument</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Instrument</span> <span class="p">{</span> <span class="n">Market</span> <span class="p">=</span> <span class="s">"ROFX"</span><span class="p">,</span> <span class="n">Symbol</span> <span class="p">=</span> <span class="s">"DOJul20"</span> <span class="p">},</span>
+    <span class="n">Expiration</span> <span class="p">=</span> <span class="n">OrderExpiration</span><span class="p">.</span><span class="n">Day</span><span class="p">,</span>
+    <span class="n">Quantity</span> <span class="p">=</span> <span class="m">100</span><span class="p">,</span>
+    <span class="n">Type</span> <span class="p">=</span> <span class="n">OrderType</span><span class="p">.</span><span class="n">Market</span>
+<span class="p">};</span>
+
+<span class="kt">var</span> <span class="n">orderId</span> <span class="p">=</span> <span class="k">await</span> <span class="n">api</span><span class="p">.</span><span class="nf">SubmitOrder</span><span class="p">(</span><span class="n">Api</span><span class="p">.</span><span class="n">DemoAccount</span><span class="p">,</span> <span class="n">order</span><span class="p">);</span>
+<span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"</span><span class="p">{</span><span class="n">orderId</span><span class="p">.</span><span class="n">ClientId</span><span class="p">}</span><span class="s"> / </span><span class="p">{</span><span class="n">orderId</span><span class="p">.</span><span class="n">Proprietary</span><span class="p">}</span><span class="s">"</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>La salida va mostrar el identificador de la orden, por ejemplo:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>327697141000025 / PBCP
+</code></pre></div></div>
+
+<p>Si quisíeramos cursar una orden con un precio límite, simplemente hay que cambiar el tipo y poner el precio:</p>
+
+<div class="language-c# highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">var</span> <span class="n">order</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Order</span>
+<span class="p">{</span>
+    <span class="n">Instrument</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Instrument</span> <span class="p">{</span> <span class="n">Market</span> <span class="p">=</span> <span class="s">"ROFX"</span><span class="p">,</span> <span class="n">Symbol</span> <span class="p">=</span> <span class="s">"DOJul20"</span> <span class="p">},</span>
+    <span class="n">Expiration</span> <span class="p">=</span> <span class="n">OrderExpiration</span><span class="p">.</span><span class="n">Day</span><span class="p">,</span>
+    <span class="n">Quantity</span> <span class="p">=</span> <span class="m">100</span><span class="p">,</span>
+    <span class="n">Type</span> <span class="p">=</span> <span class="n">OrderType</span><span class="p">.</span><span class="n">Limit</span><span class="p">,</span>
+    <span class="n">Price</span> <span class="p">=</span> <span class="m">77.99</span><span class="n">m</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<h1 id="consultando-el-estado-de-una-orden">Consultando el estado de una orden</h1>
+
+<p>Una vez enviada una orden, podemos consultar su estado utilizando el método <code class="highlighter-rouge">GetOrderStatus</code>.</p>
+
+<div class="language-c# highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">var</span> <span class="n">orderStatus</span> <span class="p">=</span> <span class="k">await</span> <span class="n">_api</span><span class="p">.</span><span class="nf">GetOrderStatus</span><span class="p">(</span><span class="n">orderId</span><span class="p">);</span>
+<span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"</span><span class="p">{</span><span class="n">orderStatus</span><span class="p">.</span><span class="n">Status</span><span class="p">}</span><span class="s"> / </span><span class="p">{</span><span class="n">orderStatus</span><span class="p">.</span><span class="n">StatusText</span><span class="p">}</span><span class="s">"</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>Si la orden fue correctamente cursada, se mostrará:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>New / Aceptada
+</code></pre></div></div>
+
+<p>Si la orden fue rechazada, la propiedad <code class="highlighter-rouge">StatusText</code> mostrará más información del motivo del rechazo, por ejemplo:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Rejected / Saldo insuficiente
+</code></pre></div></div>
+
+<p>Los estados posibles de la orden se encuentran en la enumeración <code class="highlighter-rouge">Status</code> dentro del namespace <code class="highlighter-rouge">Primary.Data.Orders</code>.</p>
+
+<h1 id="ordenes-iceberg">Ordenes iceberg</h1>
+
+<p>Para enviar una orden iceberg, hay tres propiedades que hay que tener en cuenta:</p>
+<ul>
+  <li><code class="highlighter-rouge">Iceberg</code>: Debe ser <code class="highlighter-rouge">true</code> para identificar esta orden como una orden iceberg.</li>
+  <li><code class="highlighter-rouge">Quantity</code>: La cantidad real que queremos operar.</li>
+  <li><code class="highlighter-rouge">DisplayQuantity</code>: La cantidad que queremos mostrar públicamente.</li>
+</ul>
+
+<p>Una vez cursada la orden, podemos ver como se desarrolla la operación obteniendo la información de la orden con <code class="highlighter-rouge">GetOrderStatus</code> y examinando las siguientes propiedades:</p>
+<ul>
+  <li><code class="highlighter-rouge">LastQuantity</code>: La última cantidad operada.</li>
+  <li><code class="highlighter-rouge">CumulativeQuantity</code>: La cantidad operada desde que fue enviada la orden.</li>
+  <li><code class="highlighter-rouge">LeavesQuantity</code>: La cantidad que queda por operar.</li>
+</ul>
+
+<h1 id="conclusiones">Conclusiones</h1>
+
+<p>Pudiendo cursar órdenes al mercado, ya tenemos lo básico para implementar una estrategia de trading. 
+En la próxima parte de esta serie, vamos a ver como responder a eventos y datos en tiempo real.</p>
+
+<p>Para conocer más acerca de la biblioteca, se puede acceder al <a href="https://github.com/naicigam/Primary.Net/">repositorio de GitHub</a> y a la <a href="https://finanzascodificadas.com/Primary.Net/">documentación</a>.</p>
+</div>
+        <div>Parte 1: Introducción, instrumentos negociados y datos históricos. Parte 2: Ordenes. Parte 3: Eventos y datos en tiempo real. Parte 4: Ejemplo de una estrategia de trading. En la primera parte de...</div>
+
+        <div class="read-more"><a href="/posts/primary-net-part-2">Read more...</a></div>
+      </div>
+	
+      <div class="archive-box-wrapper">
+
+        <div class="avatar_box mtb7">
+            <div class="avatar_circle">
+                
+                  <img class="avatar-image" src="https://cdn-images-1.medium.com/fit/c/40/40/2*apMDbgYdLrbwDIRf6tjqyw.jpeg" alt="Author image">
+                
+            </div>
+            <div class="post-meta brand-color-txt spacing1">Juan Manuel Alvarez</div>
+            <div class="post-meta">2019-12-01</div>
+        </div>
+
+
       	<h2 class="archive-post-title"><a href="/posts/programacion-finanzas">Programando Finanzas - Una guía de estudio</a></h2>
       	<div class="prl15"><blockquote>
   <p>Aprendé programación orientada a finanzas, a tu ritmo y usando contenido online curado y organizado.</p>
@@ -161,6 +294,53 @@ if(!(window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNo
   <p>El objetivo es usar solo recursos online y (en lo posible) gratis, cosa de no tener excusas.</p>
 </blockquote>
 
+<hr />
+
+<h1 id="preguntas-frecuentes">Preguntas frecuentes</h1>
+
+<blockquote>
+  <p>Antes de empezar, seteamos algunas expectativas.</p>
+</blockquote>
+
+<h2 id="por-qué-se-ve-python-y-no-r-o-julia">¿Por qué se ve Python y no R o Julia?</h2>
+
+<p>Porque había que elegir uno y es con el que mejor me llevo. Sin embargo, estos tres lenguajes (y mucho más) son idóneos para la tarea. El lenguaje de programación es una herramienta. El objetivo no tiene que ser solo aprender Python, o R, o Julia, sino poder aprender los fundamentos utilizando cualquier lenguaje.</p>
+
+<h2 id="por-qué-cursos-online">¿Por qué cursos online?</h2>
+
+<p>Los cursos online ofrecen muy buenas ventajas:</p>
+
+<ul>
+  <li>Son desarrollados y dictados por docentes que se dedican al tema.</li>
+  <li>La mayoría tiene una institución atrás que los avala y, si querés, podés pedir certificado.</li>
+  <li>Hay miles de alumnos cursándolos a la vez, así que nunca falta gente a quien preguntarle o que se encontró con los mismos problemas que uno.</li>
+  <li>Se actualizan y se corrigen constantemente.</li>
+</ul>
+
+<p>Mi objetivo es ir eligiendo y organizando aquellos que ofrecen lo necesario para cada etapa de la carrera.</p>
+
+<h2 id="hay-material-para-meses-de-estudio-hay-que-hacer-todos-los-cursos">Hay material para meses de estudio. ¿Hay que hacer todos los cursos?</h2>
+
+<p>Para nada. Acá nadie vigila, ni corrige. Podés saltear y hacer los cursos como quieras. Es por eso que a cada uno intento ponerle una pequeña descripción que indique el nivel de conocimiento necesario y los objetivos principales.</p>
+
+<p>Sin embargo, para hacer una comparación: ¿cuántos conocimientos de ingeniería se necesitan para…</p>
+
+<ul>
+  <li>… construir un puente?</li>
+  <li>… construir un edificio?</li>
+  <li>… construir una casa?</li>
+  <li>… cambiar una ventana?</li>
+  <li>… aceitar la puerta que hace ruido?</li>
+</ul>
+
+<p>El desarrollo de software es una disciplina que evoluciona constantemente y nunca se aprende completa. La profundidad va a depender de lo que cada persona quiera hacer.</p>
+
+<blockquote>
+  <p>Ahora sí. A aprender!</p>
+</blockquote>
+
+<hr />
+
 <h1 id="contenido">Contenido</h1>
 
 <p>Antes de empezar, ¿no sabés si la programación es para vos? Mirate <a href="https://twitter.com/JohnGalt_is_www/status/1210981218768044033">este hilo de @JohnGalt_is_www</a>.</p>
@@ -169,7 +349,7 @@ if(!(window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNo
 
 <ul>
   <li>
-    <p><a href="https://www.coursera.org/learn/computational-thinking-problem-solving">Computational Thinking for Problem Solving</a>: Todos dicen que hay que aprender Python, pero los lenguajes de programación son simplemente una herrramienta. En este curso vas a aprender como encarar problemas para resolverlos utilizando programación. Y también vas a aprender Python.</p>
+    <p><a href="https://www.coursera.org/learn/computational-thinking-problem-solving">Computational Thinking for Problem Solving</a>: Todos dicen que hay que aprender Python, pero los lenguajes de programación son simplemente una herramienta. En este curso vas a aprender como encarar problemas para resolverlos utilizando programación. Y también vas a aprender Python.</p>
   </li>
   <li>
     <p><a href="https://www.coursera.org/learn/python-data">Python Data Structures</a>: Ya conocés las estructuras de control. Acá vas a empezar a trabajar con texto, listas, diccionarios y otras estructuras de datos.</p>
@@ -208,11 +388,26 @@ if(!(window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNo
   </li>
 </ul>
 
+<h1 id="para-agregar">Para agregar</h1>
+
+<ul>
+  <li>https://www.coursera.org/learn/python-statistics-financial-analysis</li>
+  <li>https://learn.datacamp.com/courses/time-series-analysis-in-python</li>
+</ul>
+
 <h1 id="qué-sigue">¿Qué sigue?</h1>
 
 <p>Hasta este punto hay material para entretenerse varios meses. Igual voy a estar agregando más contenido y actualizando la guía, así que no dudes en suscribirte en <a href="https://finanzascodificadas.com/feed.xml">RSS</a> o <a href="https://twitter.com/AlvarezJuanDev">Twitter</a> para estar al tanto de las actualizaciones.</p>
 
 <p>No duden en enviar sugerencias!</p>
+
+<hr />
+
+<h1 id="actualizaciones">Actualizaciones</h1>
+
+<ul>
+  <li>2020-03-23: Agregadas las preguntas frecuentes.</li>
+</ul>
 </div>
         <div>Aprendé programación orientada a finanzas, a tu ritmo y usando contenido online curado y organizado. Te dedicás a finanzas y hace rato que venís mirando de costado el tema de programación, ya...</div>
 
@@ -234,6 +429,15 @@ if(!(window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNo
 
       	<h2 class="archive-post-title"><a href="/posts/primary-net-part-1">Trading algorítmico en MATba-ROFEX con .Net - Parte 1</a></h2>
       	<div class="prl15"><p><img src="https://finanzascodificadas.com/images/posts/primary-net-part-1/matba-rofex-logo.png" alt="MATBa-ROFEX" /></p>
+
+<ul>
+  <li><strong>Parte 1: Introducción, instrumentos negociados y datos históricos.</strong></li>
+  <li><a href="https://finanzascodificadas.com/posts/primary-net-part-2">Parte 2: Ordenes.</a></li>
+  <li>Parte 3: Eventos y datos en tiempo real.</li>
+  <li>Parte 4: Ejemplo de una estrategia de trading.</li>
+</ul>
+
+<hr />
 
 <h1 id="introducción">Introducción</h1>
 
@@ -413,9 +617,9 @@ DOAgo20
 
 <p>Pueden encontrar más información de la Primary API en su <a href="http://api.primary.com.ar/">sitio oficial</a>.</p>
 
-<p>Para conocer más acerca de la biblioteca, se puede acceder al <a href="https://github.com/naicigam/Primary.Net/">repositorio de GitHub</a> y a la <a href="https://primary.naicigam.dev/">documentación</a>.</p>
+<p>Para conocer más acerca de la biblioteca, se puede acceder al <a href="https://github.com/naicigam/Primary.Net/">repositorio de GitHub</a> y a la <a href="https://finanzascodificadas.com/Primary.Net/">documentación</a>.</p>
 </div>
-        <div>Introducción El mercado algorítmico argentino y ROFEX En mercados altamente desarrollados, como el de Estados Unidos, el trading algorítmico viene creciendo exponencialmente en los últimos años. Su desarrollo ha sido notorio, desde...</div>
+        <div>Parte 1: Introducción, instrumentos negociados y datos históricos. Parte 2: Ordenes. Parte 3: Eventos y datos en tiempo real. Parte 4: Ejemplo de una estrategia de trading. Introducción El mercado algorítmico argentino...</div>
 
         <div class="read-more"><a href="/posts/primary-net-part-1">Read more...</a></div>
       </div>
@@ -445,6 +649,13 @@ DOAgo20
 </div>
 
 <div class="archive-date">
+  <a href="/2020/06/">Jun 2020</a>
+  
+        <span class="divider">&#x2022;</span>
+  
+</div>
+
+<div class="archive-date">
   <a href="/2020/03/">Mar 2020</a>
   
 </div>
@@ -457,7 +668,7 @@ DOAgo20
       </div>
       <div class="footer-col col-40w border-box">
         <div class="footer-header--custom">
-            <div class="footer-header--custom-underline">También nos podés encontrar en:</div>
+            <div class="footer-header--custom-underline">También me podés encontrar en:</div>
         </div>
         <ul class="social-media-list">
   
@@ -492,6 +703,13 @@ DOAgo20
 
 <div class="archive-date">
   <a href="/2019/12/">Dec 2019</a>
+  
+        <span class="divider">&#x2022;</span>
+  
+</div>
+
+<div class="archive-date">
+  <a href="/2020/06/">Jun 2020</a>
   
         <span class="divider">&#x2022;</span>
   

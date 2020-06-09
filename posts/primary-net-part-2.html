@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Begin Jekyll SEO tag v2.4.0 -->
+<title>Trading algorítmico en MATba-ROFEX con .Net - Parte 2 | Finanzas Codificadas</title>
+<meta name="generator" content="Jekyll v3.7.2" />
+<meta property="og:title" content="Trading algorítmico en MATba-ROFEX con .Net - Parte 2" />
+<meta name="author" content="Juan Manuel Alvarez" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Parte 1: Introducción, instrumentos negociados y datos históricos. Parte 2: Ordenes. Parte 3: Eventos y datos en tiempo real. Parte 4: Ejemplo de una estrategia de trading. En la primera parte de esta serie presentamos Primary.Net y como acceder a la lista de instrumentos operados y sus datos históricos. En esta segunda parte, vamos a ver como operar con órdenes. Identificando una orden Las órdenes en Primary.Net están representadas por una jerarquía de tres clases: OrderId: Identifica a una orden. Order: Contiene la información necesaria para ingresar una orden al mercado. OrderStatus: Contiene el estado de una orden enviada al mercado. Enviando una orden Una orden en Primary.Net está representada por la clase Order. Las propiedades básicas que tenemos que tener en cuenta son: Instrument: Sobre que instrumento queremos operar. Type: Si es una orden al precio de mercado y a un precio específico. Side: Orden de compra o de venta. Expiration: El tiempo de vida de la orden. Quantity: La cantidad de instrumentos a operar. Una vez creada la orden, se envia con el método SubmitOrder. Por ejemplo, así se enviaría una orden de compra por 100 contratos del futuro de dolar con vencimiento en julio 2020 al precio de mercado: var api = new Api(Api.DemoEndpoint); await api.Login(Api.DemoUsername, Api.DemoPassword); var order = new Order { Instrument = new Instrument { Market = &quot;ROFX&quot;, Symbol = &quot;DOJul20&quot; }, Expiration = OrderExpiration.Day, Quantity = 100, Type = OrderType.Market }; var orderId = await api.SubmitOrder(Api.DemoAccount, order); Console.WriteLine($&quot;{orderId.ClientId} / {orderId.Proprietary}&quot;); La salida va mostrar el identificador de la orden, por ejemplo: 327697141000025 / PBCP Si quisíeramos cursar una orden con un precio límite, simplemente hay que cambiar el tipo y poner el precio: var order = new Order { Instrument = new Instrument { Market = &quot;ROFX&quot;, Symbol = &quot;DOJul20&quot; }, Expiration = OrderExpiration.Day, Quantity = 100, Type = OrderType.Limit, Price = 77.99m }; Consultando el estado de una orden Una vez enviada una orden, podemos consultar su estado utilizando el método GetOrderStatus. var orderStatus = await _api.GetOrderStatus(orderId); Console.WriteLine($&quot;{orderStatus.Status} / {orderStatus.StatusText}&quot;); Si la orden fue correctamente cursada, se mostrará: New / Aceptada Si la orden fue rechazada, la propiedad StatusText mostrará más información del motivo del rechazo, por ejemplo: Rejected / Saldo insuficiente Los estados posibles de la orden se encuentran en la enumeración Status dentro del namespace Primary.Data.Orders. Ordenes iceberg Para enviar una orden iceberg, hay tres propiedades que hay que tener en cuenta: Iceberg: Debe ser true para identificar esta orden como una orden iceberg. Quantity: La cantidad real que queremos operar. DisplayQuantity: La cantidad que queremos mostrar públicamente. Una vez cursada la orden, podemos ver como se desarrolla la operación obteniendo la información de la orden con GetOrderStatus y examinando las siguientes propiedades: LastQuantity: La última cantidad operada. CumulativeQuantity: La cantidad operada desde que fue enviada la orden. LeavesQuantity: La cantidad que queda por operar. Conclusiones Pudiendo cursar órdenes al mercado, ya tenemos lo básico para implementar una estrategia de trading. En la próxima parte de esta serie, vamos a ver como responder a eventos y datos en tiempo real. Para conocer más acerca de la biblioteca, se puede acceder al repositorio de GitHub y a la documentación." />
+<meta property="og:description" content="Parte 1: Introducción, instrumentos negociados y datos históricos. Parte 2: Ordenes. Parte 3: Eventos y datos en tiempo real. Parte 4: Ejemplo de una estrategia de trading. En la primera parte de esta serie presentamos Primary.Net y como acceder a la lista de instrumentos operados y sus datos históricos. En esta segunda parte, vamos a ver como operar con órdenes. Identificando una orden Las órdenes en Primary.Net están representadas por una jerarquía de tres clases: OrderId: Identifica a una orden. Order: Contiene la información necesaria para ingresar una orden al mercado. OrderStatus: Contiene el estado de una orden enviada al mercado. Enviando una orden Una orden en Primary.Net está representada por la clase Order. Las propiedades básicas que tenemos que tener en cuenta son: Instrument: Sobre que instrumento queremos operar. Type: Si es una orden al precio de mercado y a un precio específico. Side: Orden de compra o de venta. Expiration: El tiempo de vida de la orden. Quantity: La cantidad de instrumentos a operar. Una vez creada la orden, se envia con el método SubmitOrder. Por ejemplo, así se enviaría una orden de compra por 100 contratos del futuro de dolar con vencimiento en julio 2020 al precio de mercado: var api = new Api(Api.DemoEndpoint); await api.Login(Api.DemoUsername, Api.DemoPassword); var order = new Order { Instrument = new Instrument { Market = &quot;ROFX&quot;, Symbol = &quot;DOJul20&quot; }, Expiration = OrderExpiration.Day, Quantity = 100, Type = OrderType.Market }; var orderId = await api.SubmitOrder(Api.DemoAccount, order); Console.WriteLine($&quot;{orderId.ClientId} / {orderId.Proprietary}&quot;); La salida va mostrar el identificador de la orden, por ejemplo: 327697141000025 / PBCP Si quisíeramos cursar una orden con un precio límite, simplemente hay que cambiar el tipo y poner el precio: var order = new Order { Instrument = new Instrument { Market = &quot;ROFX&quot;, Symbol = &quot;DOJul20&quot; }, Expiration = OrderExpiration.Day, Quantity = 100, Type = OrderType.Limit, Price = 77.99m }; Consultando el estado de una orden Una vez enviada una orden, podemos consultar su estado utilizando el método GetOrderStatus. var orderStatus = await _api.GetOrderStatus(orderId); Console.WriteLine($&quot;{orderStatus.Status} / {orderStatus.StatusText}&quot;); Si la orden fue correctamente cursada, se mostrará: New / Aceptada Si la orden fue rechazada, la propiedad StatusText mostrará más información del motivo del rechazo, por ejemplo: Rejected / Saldo insuficiente Los estados posibles de la orden se encuentran en la enumeración Status dentro del namespace Primary.Data.Orders. Ordenes iceberg Para enviar una orden iceberg, hay tres propiedades que hay que tener en cuenta: Iceberg: Debe ser true para identificar esta orden como una orden iceberg. Quantity: La cantidad real que queremos operar. DisplayQuantity: La cantidad que queremos mostrar públicamente. Una vez cursada la orden, podemos ver como se desarrolla la operación obteniendo la información de la orden con GetOrderStatus y examinando las siguientes propiedades: LastQuantity: La última cantidad operada. CumulativeQuantity: La cantidad operada desde que fue enviada la orden. LeavesQuantity: La cantidad que queda por operar. Conclusiones Pudiendo cursar órdenes al mercado, ya tenemos lo básico para implementar una estrategia de trading. En la próxima parte de esta serie, vamos a ver como responder a eventos y datos en tiempo real. Para conocer más acerca de la biblioteca, se puede acceder al repositorio de GitHub y a la documentación." />
+<link rel="canonical" href="https://finanzascodificadas.com/posts/primary-net-part-2" />
+<meta property="og:url" content="https://finanzascodificadas.com/posts/primary-net-part-2" />
+<meta property="og:site_name" content="Finanzas Codificadas" />
+<meta property="og:image" content="https://finanzascodificadas.com/images/tech-header.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-06-09T00:00:00-03:00" />
+<script type="application/ld+json">
+{"description":"Parte 1: Introducción, instrumentos negociados y datos históricos. Parte 2: Ordenes. Parte 3: Eventos y datos en tiempo real. Parte 4: Ejemplo de una estrategia de trading. En la primera parte de esta serie presentamos Primary.Net y como acceder a la lista de instrumentos operados y sus datos históricos. En esta segunda parte, vamos a ver como operar con órdenes. Identificando una orden Las órdenes en Primary.Net están representadas por una jerarquía de tres clases: OrderId: Identifica a una orden. Order: Contiene la información necesaria para ingresar una orden al mercado. OrderStatus: Contiene el estado de una orden enviada al mercado. Enviando una orden Una orden en Primary.Net está representada por la clase Order. Las propiedades básicas que tenemos que tener en cuenta son: Instrument: Sobre que instrumento queremos operar. Type: Si es una orden al precio de mercado y a un precio específico. Side: Orden de compra o de venta. Expiration: El tiempo de vida de la orden. Quantity: La cantidad de instrumentos a operar. Una vez creada la orden, se envia con el método SubmitOrder. Por ejemplo, así se enviaría una orden de compra por 100 contratos del futuro de dolar con vencimiento en julio 2020 al precio de mercado: var api = new Api(Api.DemoEndpoint); await api.Login(Api.DemoUsername, Api.DemoPassword); var order = new Order { Instrument = new Instrument { Market = &quot;ROFX&quot;, Symbol = &quot;DOJul20&quot; }, Expiration = OrderExpiration.Day, Quantity = 100, Type = OrderType.Market }; var orderId = await api.SubmitOrder(Api.DemoAccount, order); Console.WriteLine($&quot;{orderId.ClientId} / {orderId.Proprietary}&quot;); La salida va mostrar el identificador de la orden, por ejemplo: 327697141000025 / PBCP Si quisíeramos cursar una orden con un precio límite, simplemente hay que cambiar el tipo y poner el precio: var order = new Order { Instrument = new Instrument { Market = &quot;ROFX&quot;, Symbol = &quot;DOJul20&quot; }, Expiration = OrderExpiration.Day, Quantity = 100, Type = OrderType.Limit, Price = 77.99m }; Consultando el estado de una orden Una vez enviada una orden, podemos consultar su estado utilizando el método GetOrderStatus. var orderStatus = await _api.GetOrderStatus(orderId); Console.WriteLine($&quot;{orderStatus.Status} / {orderStatus.StatusText}&quot;); Si la orden fue correctamente cursada, se mostrará: New / Aceptada Si la orden fue rechazada, la propiedad StatusText mostrará más información del motivo del rechazo, por ejemplo: Rejected / Saldo insuficiente Los estados posibles de la orden se encuentran en la enumeración Status dentro del namespace Primary.Data.Orders. Ordenes iceberg Para enviar una orden iceberg, hay tres propiedades que hay que tener en cuenta: Iceberg: Debe ser true para identificar esta orden como una orden iceberg. Quantity: La cantidad real que queremos operar. DisplayQuantity: La cantidad que queremos mostrar públicamente. Una vez cursada la orden, podemos ver como se desarrolla la operación obteniendo la información de la orden con GetOrderStatus y examinando las siguientes propiedades: LastQuantity: La última cantidad operada. CumulativeQuantity: La cantidad operada desde que fue enviada la orden. LeavesQuantity: La cantidad que queda por operar. Conclusiones Pudiendo cursar órdenes al mercado, ya tenemos lo básico para implementar una estrategia de trading. En la próxima parte de esta serie, vamos a ver como responder a eventos y datos en tiempo real. Para conocer más acerca de la biblioteca, se puede acceder al repositorio de GitHub y a la documentación.","author":{"@type":"Person","name":"Juan Manuel Alvarez"},"@type":"BlogPosting","url":"https://finanzascodificadas.com/posts/primary-net-part-2","image":"https://finanzascodificadas.com/images/tech-header.png","headline":"Trading algorítmico en MATba-ROFEX con .Net - Parte 2","dateModified":"2020-06-09T00:00:00-03:00","datePublished":"2020-06-09T00:00:00-03:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://finanzascodificadas.com/posts/primary-net-part-2"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="stylesheet" href="/css/custom.css">
+  <link type="application/atom+xml" rel="alternate" href="https://finanzascodificadas.com/feed.xml" title="Finanzas Codificadas" />
+  
+    
+<script>
+if(!(window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNotTrack === "yes" || navigator.msDoNotTrack === "1")) {
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-159935576-1', 'auto');
+  ga('send', 'pageview');
+}
+</script>
+  
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML'></script>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({displayAlign: "center", tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+  </script>
+</head>
+
+
+  <body>
+
+    <header class="site-header" role="banner">
+
+<div class="header-metabar-wrapper__small">  
+    <div class="header-metabar-wrapper-inner__small">  
+        <a href="/" class="header-logo__small">
+            <img class="header-logo" src="/images/logo-blanco-med.png" alt="Logo">
+        </a>
+        <div class="menu-header__small">
+            <a href="/search" class="menu-header-item__small">
+                <div class="glass-icon" type="button"><img src="/images/glass-icon-colored.svg"></div>
+            </a>
+        </div>
+    </div>
+</div>
+
+
+
+<!--
+  <div class="wrapper">
+    
+    
+    <a class="site-title" rel="author" href="/">Finanzas Codificadas</a>
+
+    
+      <nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+              <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+              <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger">
+          
+            
+            
+          
+            
+            
+            <a class="page-link" href="/about/">About</a>
+            
+          
+            
+            
+          
+            
+            
+          
+            
+            
+          
+            
+            
+          
+            
+            
+          
+            
+            
+          
+            
+            
+          
+            
+            
+          
+            
+            
+          
+        </div>
+      </nav>
+    
+  </div>
+-->
+</header>
+
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry article-wrapper" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <div class="avatar_box">
+        <div class="avatar_circle">
+            
+              <img class="avatar-image" src="https://cdn-images-1.medium.com/fit/c/40/40/2*apMDbgYdLrbwDIRf6tjqyw.jpeg" alt="Author image">
+            
+        </div>
+        <div class="post-meta">Juan Manuel Alvarez</div>
+        <div class="post-meta">2020-06-09 00:00:00 -0300</div>
+    </div>
+    <h1 class="post-title p-name" itemprop="name headline">Trading algorítmico en MATba-ROFEX con .Net - Parte 2</h1>
+    
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p><img src="https://finanzascodificadas.com/images/posts/primary-net-part-1/matba-rofex-logo.png" alt="MATBa-ROFEX" /></p>
+
+<ul>
+  <li><a href="https://finanzascodificadas.com/posts/primary-net-part-1">Parte 1: Introducción, instrumentos negociados y datos históricos.</a></li>
+  <li><strong>Parte 2: Ordenes.</strong></li>
+  <li>Parte 3: Eventos y datos en tiempo real.</li>
+  <li>Parte 4: Ejemplo de una estrategia de trading.</li>
+</ul>
+
+<hr />
+
+<p>En la primera parte de esta serie presentamos Primary.Net y como acceder a la lista de instrumentos operados y sus datos históricos.
+En esta segunda parte, vamos a ver como operar con órdenes.</p>
+
+<h1 id="identificando-una-orden">Identificando una orden</h1>
+<p>Las órdenes en Primary.Net están representadas por una jerarquía de tres clases:</p>
+
+<p><img src="https://finanzascodificadas.com/images/posts/primary-net-part-2/order-classes.png" alt="Diagrama de clases" /></p>
+
+<ul>
+  <li><code class="highlighter-rouge">OrderId</code>: Identifica a una orden.</li>
+  <li><code class="highlighter-rouge">Order</code>: Contiene la información necesaria para ingresar una orden al mercado.</li>
+  <li><code class="highlighter-rouge">OrderStatus</code>: Contiene el estado de una orden enviada al mercado.</li>
+</ul>
+
+<h1 id="enviando-una-orden">Enviando una orden</h1>
+<p>Una orden en Primary.Net está representada por la clase <code class="highlighter-rouge">Order</code>. Las propiedades básicas que tenemos que tener en cuenta son:</p>
+<ul>
+  <li><code class="highlighter-rouge">Instrument</code>: Sobre que instrumento queremos operar.</li>
+  <li><code class="highlighter-rouge">Type</code>: Si es una orden al precio de mercado y a un precio específico.</li>
+  <li><code class="highlighter-rouge">Side</code>: Orden de compra o de venta.</li>
+  <li><code class="highlighter-rouge">Expiration</code>: El tiempo de vida de la orden.</li>
+  <li><code class="highlighter-rouge">Quantity</code>: La cantidad de instrumentos a operar.</li>
+</ul>
+
+<p>Una vez creada la orden, se envia con el método <code class="highlighter-rouge">SubmitOrder</code>.</p>
+
+<p>Por ejemplo, así se enviaría una orden de compra por 100 contratos del futuro de dolar con vencimiento en julio 2020 al precio de mercado:</p>
+
+<div class="language-c# highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">var</span> <span class="n">api</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Api</span><span class="p">(</span><span class="n">Api</span><span class="p">.</span><span class="n">DemoEndpoint</span><span class="p">);</span>
+<span class="k">await</span> <span class="n">api</span><span class="p">.</span><span class="nf">Login</span><span class="p">(</span><span class="n">Api</span><span class="p">.</span><span class="n">DemoUsername</span><span class="p">,</span> <span class="n">Api</span><span class="p">.</span><span class="n">DemoPassword</span><span class="p">);</span>
+
+<span class="kt">var</span> <span class="n">order</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Order</span>
+<span class="p">{</span>
+    <span class="n">Instrument</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Instrument</span> <span class="p">{</span> <span class="n">Market</span> <span class="p">=</span> <span class="s">"ROFX"</span><span class="p">,</span> <span class="n">Symbol</span> <span class="p">=</span> <span class="s">"DOJul20"</span> <span class="p">},</span>
+    <span class="n">Expiration</span> <span class="p">=</span> <span class="n">OrderExpiration</span><span class="p">.</span><span class="n">Day</span><span class="p">,</span>
+    <span class="n">Quantity</span> <span class="p">=</span> <span class="m">100</span><span class="p">,</span>
+    <span class="n">Type</span> <span class="p">=</span> <span class="n">OrderType</span><span class="p">.</span><span class="n">Market</span>
+<span class="p">};</span>
+
+<span class="kt">var</span> <span class="n">orderId</span> <span class="p">=</span> <span class="k">await</span> <span class="n">api</span><span class="p">.</span><span class="nf">SubmitOrder</span><span class="p">(</span><span class="n">Api</span><span class="p">.</span><span class="n">DemoAccount</span><span class="p">,</span> <span class="n">order</span><span class="p">);</span>
+<span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"</span><span class="p">{</span><span class="n">orderId</span><span class="p">.</span><span class="n">ClientId</span><span class="p">}</span><span class="s"> / </span><span class="p">{</span><span class="n">orderId</span><span class="p">.</span><span class="n">Proprietary</span><span class="p">}</span><span class="s">"</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>La salida va mostrar el identificador de la orden, por ejemplo:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>327697141000025 / PBCP
+</code></pre></div></div>
+
+<p>Si quisíeramos cursar una orden con un precio límite, simplemente hay que cambiar el tipo y poner el precio:</p>
+
+<div class="language-c# highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">var</span> <span class="n">order</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Order</span>
+<span class="p">{</span>
+    <span class="n">Instrument</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Instrument</span> <span class="p">{</span> <span class="n">Market</span> <span class="p">=</span> <span class="s">"ROFX"</span><span class="p">,</span> <span class="n">Symbol</span> <span class="p">=</span> <span class="s">"DOJul20"</span> <span class="p">},</span>
+    <span class="n">Expiration</span> <span class="p">=</span> <span class="n">OrderExpiration</span><span class="p">.</span><span class="n">Day</span><span class="p">,</span>
+    <span class="n">Quantity</span> <span class="p">=</span> <span class="m">100</span><span class="p">,</span>
+    <span class="n">Type</span> <span class="p">=</span> <span class="n">OrderType</span><span class="p">.</span><span class="n">Limit</span><span class="p">,</span>
+    <span class="n">Price</span> <span class="p">=</span> <span class="m">77.99</span><span class="n">m</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<h1 id="consultando-el-estado-de-una-orden">Consultando el estado de una orden</h1>
+
+<p>Una vez enviada una orden, podemos consultar su estado utilizando el método <code class="highlighter-rouge">GetOrderStatus</code>.</p>
+
+<div class="language-c# highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">var</span> <span class="n">orderStatus</span> <span class="p">=</span> <span class="k">await</span> <span class="n">_api</span><span class="p">.</span><span class="nf">GetOrderStatus</span><span class="p">(</span><span class="n">orderId</span><span class="p">);</span>
+<span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"</span><span class="p">{</span><span class="n">orderStatus</span><span class="p">.</span><span class="n">Status</span><span class="p">}</span><span class="s"> / </span><span class="p">{</span><span class="n">orderStatus</span><span class="p">.</span><span class="n">StatusText</span><span class="p">}</span><span class="s">"</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>Si la orden fue correctamente cursada, se mostrará:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>New / Aceptada
+</code></pre></div></div>
+
+<p>Si la orden fue rechazada, la propiedad <code class="highlighter-rouge">StatusText</code> mostrará más información del motivo del rechazo, por ejemplo:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Rejected / Saldo insuficiente
+</code></pre></div></div>
+
+<p>Los estados posibles de la orden se encuentran en la enumeración <code class="highlighter-rouge">Status</code> dentro del namespace <code class="highlighter-rouge">Primary.Data.Orders</code>.</p>
+
+<h1 id="ordenes-iceberg">Ordenes iceberg</h1>
+
+<p>Para enviar una orden iceberg, hay tres propiedades que hay que tener en cuenta:</p>
+<ul>
+  <li><code class="highlighter-rouge">Iceberg</code>: Debe ser <code class="highlighter-rouge">true</code> para identificar esta orden como una orden iceberg.</li>
+  <li><code class="highlighter-rouge">Quantity</code>: La cantidad real que queremos operar.</li>
+  <li><code class="highlighter-rouge">DisplayQuantity</code>: La cantidad que queremos mostrar públicamente.</li>
+</ul>
+
+<p>Una vez cursada la orden, podemos ver como se desarrolla la operación obteniendo la información de la orden con <code class="highlighter-rouge">GetOrderStatus</code> y examinando las siguientes propiedades:</p>
+<ul>
+  <li><code class="highlighter-rouge">LastQuantity</code>: La última cantidad operada.</li>
+  <li><code class="highlighter-rouge">CumulativeQuantity</code>: La cantidad operada desde que fue enviada la orden.</li>
+  <li><code class="highlighter-rouge">LeavesQuantity</code>: La cantidad que queda por operar.</li>
+</ul>
+
+<h1 id="conclusiones">Conclusiones</h1>
+
+<p>Pudiendo cursar órdenes al mercado, ya tenemos lo básico para implementar una estrategia de trading. 
+En la próxima parte de esta serie, vamos a ver como responder a eventos y datos en tiempo real.</p>
+
+<p>Para conocer más acerca de la biblioteca, se puede acceder al <a href="https://github.com/naicigam/Primary.Net/">repositorio de GitHub</a> y a la <a href="https://finanzascodificadas.com/Primary.Net/">documentación</a>.</p>
+
+  </div>
+
+  
+
+  <a class="u-url" href="/posts/primary-net-part-2" hidden></a>
+</article>
+      </div>
+    </main>
+
+    <footer class="site-footer h-card">
+  <div class="page-wrapper footer-wrapper">
+      
+      <div class="footer-col col-60w">
+        <div class="footer-header--custom">
+            <div class="footer-header--custom-underline">Archivo</div>
+        </div>
+        <div class="footer-items-wrapper">
+          
+
+<div class="archive-date">
+  <a href="/2019/12/">Dec 2019</a>
+  
+        <span class="divider">&#x2022;</span>
+  
+</div>
+
+<div class="archive-date">
+  <a href="/2020/06/">Jun 2020</a>
+  
+        <span class="divider">&#x2022;</span>
+  
+</div>
+
+<div class="archive-date">
+  <a href="/2020/03/">Mar 2020</a>
+  
+</div>
+
+
+
+
+
+        </div>
+      </div>
+      <div class="footer-col col-40w border-box">
+        <div class="footer-header--custom">
+            <div class="footer-header--custom-underline">También me podés encontrar en:</div>
+        </div>
+        <ul class="social-media-list">
+  
+  
+  
+  <li><a href="https://github.com/naicigam"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">naicigam</span></a></li>
+  
+  
+  
+  
+  <li><a href="https://www.twitter.com/AlvarezJuanDev"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">AlvarezJuanDev</span></a></li>
+  
+  
+  
+</ul>
+      </div>
+
+  </div>
+  <div class="row footer-wrapper footer-wrapper--small">
+    <div class="created-by">
+      <a href="http://www.fibury.com" target="_blank">
+        Powered by Fibury
+        <span class="fibury-icon"><img src="/images/fibury-powered.png"></span>
+      </a>
+
+    </div>
+  </div>
+
+  <!--
+  <data class="u-url" href="/"></data>
+ 
+
+<div class="archive-date">
+  <a href="/2019/12/">Dec 2019</a>
+  
+        <span class="divider">&#x2022;</span>
+  
+</div>
+
+<div class="archive-date">
+  <a href="/2020/06/">Jun 2020</a>
+  
+        <span class="divider">&#x2022;</span>
+  
+</div>
+
+<div class="archive-date">
+  <a href="/2020/03/">Mar 2020</a>
+  
+</div>
+
+
+
+
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Finanzas Codificadas</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">
+            
+              Juan Manuel Alvarez
+            
+            </li>
+            
+            <li><a class="u-email" href="mailto:info@finanzascodificadas.com">info@finanzascodificadas.com</a></li>
+            
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-2">
+        <ul class="social-media-list">
+  
+  
+  
+  <li><a href="https://github.com/naicigam"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">naicigam</span></a></li>
+  
+  
+  
+  
+  <li><a href="https://www.twitter.com/AlvarezJuanDev"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">AlvarezJuanDev</span></a></li>
+  
+  
+  
+</ul>
+      </div>
+
+      <div class="footer-col footer-col-3">
+        <p>Code Jedi - Finance Padawan</p>
+      </div>
+    </div>
+
+  </div>
+  -->
+
+</footer>
+
+
+
+  </body>
+
+</html>
