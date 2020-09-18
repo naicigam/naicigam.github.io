@@ -1,6 +1,14 @@
 [
   
     {
+      "title"    : "¿Qué es el quant trading?",
+      "category" : "",
+      "tags"     : "",
+      "url"      : "/posts/intro-quant-trading",
+      "date"     : "2020-09-18 00:00:00 -0300"
+    } ,
+  
+    {
       "title"    : "Trading algorítmico en MATba-ROFEX con .Net - Parte 2",
       "category" : "",
       "tags"     : "",
